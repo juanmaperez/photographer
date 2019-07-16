@@ -14,7 +14,7 @@ const HeaderView = styled.header`
   left: 0;
   width: 100%;
   box-sizing: border-box;
-  padding: 15px 30px 10px;
+  padding: 20px 120px 20px;
   display: flex;
   justify-content: space-between;
   z-index: 100;
@@ -25,11 +25,26 @@ const HeaderView = styled.header`
       letter-spacing: 1px;
       font-size: 24px;
       position: relative;
+      text-transform: uppercase;
+      color: #323846;
     }
   }
   nav {
     margin-top: 7px;
-    a { font-size: 16px }
+    a { 
+      font-family: 'Questrial';
+      font-size: 24px;
+      cursor: pointer;
+      text-transform: capitalize;
+      color: #323846;
+      span { 
+        opacity: 0;
+        transition: opacity 100ms linear;
+      }
+      &:hover {
+        span {opacity: 1}
+      }
+    }
   }
 `
 
@@ -53,11 +68,11 @@ class Header extends Component {
     
     return (
       <HeaderView>
-        <h1 className="web-title" data-text="Rocio Corona" style={{ margin: 0 }}>
-          <Link data-text="Rocio Corona" to="/"> {siteTitle} </Link>
+        <h1 className="web-title" data-text="Photographer" style={{ margin: 0 }}>
+          <Link data-text="Photographer" to="/"> {siteTitle} </Link>
         </h1>
         <nav>
-          <Link to="/contact"> contact </Link>
+          <Link to="/contact"><span>[</span> Contact <span>]</span> </Link>
         </nav>
       </HeaderView>
     )

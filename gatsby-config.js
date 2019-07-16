@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Rocio Corona`,
-    description: `Portfolio oficial de Rocio Corona. Fotógrafa de eventos, momentos y viajes. `,
+    title: `Photographer`,
+    description: `Professional photographer portfolio. Let everyone know about your work `,
     author: `Juanma Perez`,
   },
   plugins: [
