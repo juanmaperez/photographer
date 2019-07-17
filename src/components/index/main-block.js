@@ -39,11 +39,10 @@ const MainBlockView = styled.div`
       cursor: pointer;
       color: #323846;
       span { 
-        opacity: 0;
-        transition: opacity 100ms linear;
+        transition: all 100ms linear;
       }
       &:hover {
-        span {opacity: 1}
+        .text {text-decoration: line-through}
       }
     }
   }
@@ -59,6 +58,7 @@ class MainBlock extends Component {
   animation = () => {
     const tl = new TimelineMax()
     tl
+    .fromTo('.first', 0.4,{ autoAlpha: 0 },{autoAlpha: 1 })
     .fromTo('.main-block-cover', .5, { scaleX: 0 }, { scaleX: 1, ease: Power1.easeIn}, '+=0.9')
     .to('.first', 0.2,{className:"+=second"})
     .to('.second', 0.1,{className:"+=first"})
@@ -71,9 +71,9 @@ class MainBlock extends Component {
       <MainBlockView className="first">
         <div className="main-block-cover"></div>
         <ul className="main-list">
-          <li><span>[</span> Projects <span>]</span></li>
-          <li><span>[</span> Places <span>]</span></li>
-          <li><span>[</span> Moments <span>]</span></li>
+          <li><span>[</span> <span className="text">Projects</span> <span>]</span></li>
+          <li><span>[</span> <span className="text">Places</span> <span>]</span></li>
+          <li><span>[</span> <span className="text">Moments</span> <span>]</span></li>
         </ul>
       </MainBlockView>
     )

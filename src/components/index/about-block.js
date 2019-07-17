@@ -20,7 +20,7 @@ const AboutBlockView = styled.div`
     font-size: 8vw;
     color: #323846;
     line-height: 1.2;
-    padding: 20px 80px;
+    padding: 20px 120px;
     box-sizing: border-box;
     font-weight: bolder;
     -webkit-text-stroke: 1px #323846;

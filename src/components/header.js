@@ -38,11 +38,10 @@ const HeaderView = styled.header`
       text-transform: capitalize;
       color: #323846;
       span { 
-        opacity: 0;
         transition: opacity 100ms linear;
       }
       &:hover {
-        span {opacity: 1}
+        .text {text-decoration: line-through}
       }
     }
   }
@@ -72,7 +71,7 @@ class Header extends Component {
           <Link data-text="Photographer" to="/"> {siteTitle} </Link>
         </h1>
         <nav>
-          <Link to="/contact"><span>[</span> Contact <span>]</span> </Link>
+          <Link to="/contact"><span>[</span> <span className="text">Contact</span> <span>]</span> </Link>
         </nav>
       </HeaderView>
     )
