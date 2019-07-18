@@ -14,7 +14,7 @@ const HeaderView = styled.header`
   left: 0;
   width: 100%;
   box-sizing: border-box;
-  padding: 20px 120px 20px;
+  padding: 30px 120px 20px;
   display: flex;
   justify-content: space-between;
   z-index: 100;

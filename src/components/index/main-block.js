@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { Power1, Linear, TweenMax, TimelineMax } from 'gsap'
+import { Power1, TimelineMax } from 'gsap'
 
-import backgroundFirst from './../../assets/images/first.jpg'
-import backgroundSecond from './../../assets/images/second.jpg'
+import backgroundSecond from './../../assets/images/first.jpg'
+import backgroundFirst from './../../assets/images/second.jpg'
 
 const MainBlockView = styled.div`
   min-height: 100vh;
@@ -16,6 +16,7 @@ const MainBlockView = styled.div`
     background: url(${backgroundFirst});
   }  
   &.second {
+    background-attachment: fixed !important;
     background-size: cover !important;
     background-position: center center !important;
     background: url(${backgroundSecond});
