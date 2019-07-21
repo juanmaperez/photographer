@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { Power1, TimelineMax } from 'gsap'
+import { Power1, TimelineMax, TweenMax } from 'gsap'
+import ScrollMagic from 'scrollmagic/scrollmagic/minified/ScrollMagic.min';
+import 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min';
+import 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min';
 
 import backgroundSecond from './../../assets/images/first.jpg'
 import backgroundFirst from './../../assets/images/second.jpg'
@@ -36,6 +39,7 @@ const MainBlockView = styled.div`
     padding: 0px;
     li {
       font-size: 24px;
+      margin-bottom: 5px;
       text-align: right;
       cursor: pointer;
       color: #323846;
@@ -54,6 +58,7 @@ class MainBlock extends Component {
 
   componentDidMount(){
     this.animation();
+    this.removeSocial();
   }
 
   animation = () => {
@@ -67,14 +72,27 @@ class MainBlock extends Component {
     .staggerFromTo('.main-list li', .6, {y: 20, autoAlpha: 0 },{y: 0, autoAlpha: 1 }, 0.2)
   }
 
+  removeSocial = () =>{
+    const controller = new ScrollMagic.Controller()
+    const tween = TweenMax.fromTo('.main-list', 0.6, {autoAlpha: 1 }, {autoAlpha: 0})
+
+    new ScrollMagic.Scene({
+      triggerElement: '.main-list',
+      triggerHook: .2,
+      duration: '10%'
+    })
+    .setTween(tween)
+    .addTo(controller)
+  }
+
   render(){
     return (
       <MainBlockView className="first">
         <div className="main-block-cover"></div>
         <ul className="main-list">
-          <li><span>[</span> <span className="text">Projects</span> <span>]</span></li>
-          <li><span>[</span> <span className="text">Places</span> <span>]</span></li>
-          <li><span>[</span> <span className="text">Moments</span> <span>]</span></li>
+          <li><span>Ig: [</span> <span className="text">@ladyphoto</span> <span>]</span></li>
+          <li><span>Tw: [</span> <span className="text">@ladyMadrid</span> <span>]</span></li>
+          <li><span>Be: [</span> <span className="text">/ladyMadridPhoto</span> <span>]</span></li>
         </ul>
       </MainBlockView>
     )

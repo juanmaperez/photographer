@@ -22,7 +22,7 @@ const AboutBlockView = styled.div`
   position: relative;
   .about-wrapper {
     background: #fbf9f3;
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     -webkit-clip-path: inset(0 0 0 0);
@@ -30,10 +30,10 @@ const AboutBlockView = styled.div`
     .image {
       position: fixed;
       right: 120px;
-      top: 30px;
-      width: 30vw;
-      transition: opacity 300ms linear;
-      &.fade-in {
+      bottom: 30px !important;
+      width: 32vw;
+      &.absolute {
+        position: absolute;
       }
       img {
         max-width: 100%;
@@ -44,7 +44,7 @@ const AboutBlockView = styled.div`
       z-index: 10;
       width: 100%;
       font-size: 7vw;
-      color: #323846;
+      color: #f0d0d5;
       line-height: 1.2;
       padding: 100vh 120px 50px;
       box-sizing: border-box;
@@ -58,8 +58,8 @@ const AboutBlockView = styled.div`
         }
    
         strong, a {
-          color: #323846;
-          -webkit-text-stroke: 0.0002em #323846;
+          color: #f0d0d5;
+          -webkit-text-stroke: 0.0002em #f0d0d5;
           &:hover {text-decoration: underline}
         }
       }
@@ -110,6 +110,7 @@ class AboutBlock extends Component {
 
   componentDidMount(){
     this.showImage()
+    this.hideImage()
   }
 
 
@@ -121,7 +122,19 @@ class AboutBlock extends Component {
     new ScrollMagic.Scene({
       triggerElement: '.about-wrapper',
       triggerHook: .1,
-      duration: '10%'
+      duration: '30%'
+    })
+    .setTween(tween)
+    .addTo(controller)
+  }
+
+  hideImage(){
+    const controller = new ScrollMagic.Controller()
+    const tween = TweenMax.to('.image', .00001, {className: '+=absolute'})
+
+    new ScrollMagic.Scene({
+      triggerElement: '.section-title',
+      triggerHook: 1,
     })
     .setTween(tween)
     .addTo(controller)
@@ -155,7 +168,10 @@ class AboutBlock extends Component {
             </Controller>    
             <Controller>
               <Scene classToggle={'fade-in'} triggerHook={0.80}>
-                <p>Also you can find me in social medias like <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ladymadrid">Instagram, Behance or Twitter.</a>.</p>
+                <p>Also you can find me in social media <br/>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ladymadrid">Instagram</a>,
+                <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ladymadrid">Behance</a> 
+                or <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ladymadrid">Twitter</a>.</p>
               </Scene>
             </Controller>  
           </div> 
