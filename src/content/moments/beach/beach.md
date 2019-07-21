@@ -1,9 +1,9 @@
 ---
-path: '/places/a-bit-of-beach'
+path: '/moments/a-bit-of-beach'
 date: '2018-06-18T12:34:00+00:00'
 title: "A bit of beach"
 thumbnail: ./principal.jpg
-type: places
+type: moments
 images: [
   { title: 'Take out of here',  image: './car.jpg'},
   { title: 'Lets get that place',  image: './pier.jpg'},

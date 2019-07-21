@@ -1,9 +1,9 @@
 ---
-path: '/places/a-day-out-of-work'
+path: '/moments/a-day-out-of-work'
 date: '2018-03-18T12:34:00+00:00'
 title: "A day out of work"
 thumbnail: ./dinamo.jpg
-type: places
+type: moments
 images: [
   { title: 'Get in with me',  image: './sign.jpg'},
   { title: 'The guardian in the rye',  image: './sit.jpg'},

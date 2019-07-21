@@ -1,9 +1,9 @@
 ---
-path: '/places/glimpse-into-the-city'
+path: '/projects/glimpse-into-the-city'
 date: '2018-05-18T12:34:00+00:00'
 title: "A glimpse into the city"
 thumbnail: ./hotel.jpg
-type: places
+type: projects
 images: [
   { title: 'Turn to the left',  image: './corner.jpg'},
   { title: 'Lovely dinner',  image: './restaurant.jpg'},
