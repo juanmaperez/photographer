@@ -30,7 +30,7 @@ const AboutBlockView = styled.div`
     .image {
       position: fixed;
       right: 120px;
-      bottom: 30px !important;
+      bottom: 10px !important;
       width: 32vw;
       &.absolute {
         position: absolute;
@@ -133,7 +133,7 @@ class AboutBlock extends Component {
     const tween = TweenMax.to('.image', .00001, {className: '+=absolute'})
 
     new ScrollMagic.Scene({
-      triggerElement: '.section-title',
+      triggerElement: '.works-block',
       triggerHook: 1,
     })
     .setTween(tween)

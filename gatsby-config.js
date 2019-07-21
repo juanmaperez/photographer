@@ -9,6 +9,20 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+                maxWidth: 740,
+                linkImagesToOriginal: false
+            }
+          }
+        ]
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -18,22 +32,22 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `proyectos`,
-        path: `${__dirname}/src/content/proyectos`,
+        name: `projects`,
+        path: `${__dirname}/src/content/projects`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `lugares`,
-        path: `${__dirname}/src/content/lugares`,
+        name: `places`,
+        path: `${__dirname}/src/content/places`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `momentos`,
-        path: `${__dirname}/src/content/momentos`,
+        name: `moments`,
+        path: `${__dirname}/src/content/moments`,
       },
     },
     `gatsby-transformer-sharp`,
