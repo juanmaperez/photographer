@@ -171,7 +171,7 @@ class AboutBlock extends Component {
                 <p>Also you can find me in social media <br/>
                 <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ladymadrid">Instagram</a>,
                 <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ladymadrid">Behance</a> 
-                or <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ladymadrid">Twitter</a>.</p>
+                &nbsp;or <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ladymadrid">Twitter</a>.</p>
               </Scene>
             </Controller>  
           </div> 
