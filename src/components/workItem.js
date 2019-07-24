@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 
+import ScrollMagic from 'scrollmagic/scrollmagic/minified/ScrollMagic.min';
+import 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min';
+import 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min';
+import { TweenMax, Linear, Power1 } from 'gsap';
+
 const WorkItemView = styled.div`
   width: 100%;
   height: 80vh;
@@ -13,6 +18,7 @@ const WorkItemView = styled.div`
     max-height:100%;
   
     .title {
+      z-index: 5;
       position: absolute;
       transform: rotate(-90deg);
       width: 200px;
@@ -20,18 +26,21 @@ const WorkItemView = styled.div`
       right: -115px;
     }
     .image-wrapper {
+      z-index: 6;
       top: 0;
       position: relative;
       max-width: 100%;
       height: 80vh;
       overflow: hidden;
-      background-size: cover !important;
-      background-repeat: no-repeat !important;
-      background-position: center center !important;
-    
-      img {
-        max-width: 100%;
-        height: auto;
+   
+      .image {
+        top: 0;
+        position: relative;
+        max-width: 110%;
+        height: 85vh;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        background-position: center center !important;
       }
     }
   
@@ -41,16 +50,66 @@ const WorkItemView = styled.div`
 
 class WorkItem extends Component {
 
+  componentDidMount(){
+    this.titleAnimation()
+    this.imageAnimation()
+    this.imageWrapperAnimation()
+  }
+
+  titleAnimation(){
+    const { work, top } = this.props;
+
+    const controller = new ScrollMagic.Controller()
+    const tween = TweenMax.fromTo(`.work-${work.type}-${top} .title`, 1, { autoAlpha: 0, x: -40}, {autoAlpha: 1, x: 0, ease: Power1.easeIn })
+    
+    new ScrollMagic.Scene({
+      triggerElement: `.work-${work.type}-${top}`,
+      triggerHook: .35,
+      duration: '25%'
+    })
+    .setTween(tween)
+    .addTo(controller)
+  }
+
+  imageAnimation(){
+    const { work, top } = this.props;
+
+    const controller = new ScrollMagic.Controller()
+    const tween = TweenMax.fromTo(`.image-${work.type}-${top}`, 1, {y: 0}, {y: 100, ease: Linear.easeNone })
+    
+    new ScrollMagic.Scene({
+      triggerElement: `.wrapper-${work.type}-${top}`,
+      triggerHook: .4,
+      duration: '80%'
+    })
+    .setTween(tween)
+    .addTo(controller)
+  }
+
+  imageWrapperAnimation(){
+    const { work, top } = this.props;
+
+    const controller = new ScrollMagic.Controller()
+    const tween = TweenMax.fromTo(`.work-${work.type}-${top}`, 1, {y: 0}, {y: -100 * top , ease: Power1.easeIn })
+    
+    new ScrollMagic.Scene({
+      triggerElement: `.work-${work.type}-${top}`,
+      triggerHook: .9,
+      duration: '70%'
+    })
+    .setTween(tween)
+    .addTo(controller)
+  }
+
   render(){
     const { work, top } = this.props;
-    console.log(work)
     return(
       <WorkItemView top={top}>
-        <div className="work-container">
-          <div className="image-wrapper" style={{'background': `url(${work.thumbnail.childImageSharp.fluid.src})`}}>
-            {/* <Image imageUrl={  } title={ work.title } /> */}
-          </div>
-          <span className="title">{ work.title }</span>
+        <div className={`work-container work-${work.type}-${top}`}>
+          <div className={`image-wrapper wrapper-${work.type}-${top}`}>
+            <div className={`image image-${work.type}-${top}`} style={{'background': `url(${work.thumbnail.childImageSharp.fluid.src})`}}></div>
+         </div>
+         <span className="title">{ work.title }</span>
         </div>
       </WorkItemView>
     )

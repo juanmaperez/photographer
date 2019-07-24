@@ -8,7 +8,7 @@ const WorksBlockView = styled.div`
   width: 100vw;
   min-height: 100vh;
   background: #fbf9f3;
-  padding: 250px 17vw 100px;
+  padding: 300px 17vw 100px;
   box-sizing: border-box;
 
   .section-title {
