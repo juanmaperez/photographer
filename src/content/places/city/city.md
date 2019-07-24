@@ -2,7 +2,7 @@
 path: '/places/glimpse-into-the-city'
 date: '2018-05-18T12:34:00+00:00'
 title: "A glimpse into the city"
-thumbnail: ./hotel.jpg
+thumbnail: ./tube.jpg
 type: places
 images: [
   { title: 'Turn to the left',  image: './corner.jpg'},

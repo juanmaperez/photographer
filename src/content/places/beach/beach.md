@@ -2,7 +2,7 @@
 path: '/places/a-bit-of-beach'
 date: '2018-06-18T12:34:00+00:00'
 title: "A bit of beach"
-thumbnail: ./principal.jpg
+thumbnail: ./pier.jpg
 type: places
 images: [
   { title: 'Take out of here',  image: './car.jpg'},
