@@ -38,7 +38,7 @@ const MainBlockView = styled.div`
     right: 120px;
     padding: 0px;
     li {
-      font-size: 24px;
+      font-size: 18px;
       margin-bottom: 5px;
       text-align: right;
       cursor: pointer;
@@ -88,7 +88,7 @@ class MainBlock extends Component {
 
   render(){
     return (
-      <MainBlockView className="first">
+      <MainBlockView className="first block-home">
         <div className="main-block-cover"></div>
         <ul className="main-list">
           <li><span>Ig: [</span> <span className="text">@ladyphoto</span> <span>]</span></li>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import MenuLink from'./menuLink'
 
 const MenuView = styled.div`
   position: relative;
@@ -18,21 +18,6 @@ const MenuView = styled.div`
     }
     ul {
       list-style: none;
-      li {
-        margin-bottom: 10px;
-        text-align: right;
-        a { 
-          display: inline;
-          color: #323846;
-          font-size: 22px;
-          &.active {
-            text-decoration: line-through;
-          }
-          &:hover {
-            text-decoration: line-through;
-          }
-        }
-      }
     }
   }
   
@@ -105,6 +90,7 @@ const MenuView = styled.div`
   }
 `
 
+
 class Menu extends Component {
 
   state = {
@@ -130,10 +116,10 @@ class Menu extends Component {
         </div>
         <div className={ open ? 'open menu-list': 'menu-list'}>
           <ul>
-            <li><Link activeClassName="active" to={'/'}><span>[</span> Home <span>]</span></Link></li>
-            <li><Link activeClassName="active" to={'/work'}><span>[</span> About <span>]</span></Link></li>
-            <li><Link activeClassName="active" to={'/blog'}><span>[</span> Works <span>]</span></Link></li>
-            <li><Link activeClassName="active" to={'/blog'}><span>[</span> Contact <span>]</span></Link></li>
+            <MenuLink name="home" to={'/'} location={this.props.location }  />
+            <MenuLink name="about" to={'/about'} location={this.props.location }  />
+            <MenuLink name="works" to={'/works'} location={this.props.location }  />
+            <MenuLink name="contact" to={'/contact'} location={this.props.location }  />  
           </ul>
         </div>
       </MenuView>

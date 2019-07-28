@@ -50,6 +50,7 @@ const ContactBlockView = styled.div`
         text-align: right;
         width: 100%;
         display:block;
+        line-height: .85;
       }
     }
     .right {
@@ -86,10 +87,10 @@ class ContactBlock extends Component {
 
   coverAnimation = () => { 
       const controller = new ScrollMagic.Controller()
-      const tween = TweenMax.fromTo(`.contact-block .cover`, 1, {  scaleY: 0}, { scaleY: 1, ease: Power1.easeIn })
+      const tween = TweenMax.fromTo(`.block-contact .cover`, 1, {  scaleY: 0}, { scaleY: 1, ease: Power1.easeIn })
       
       new ScrollMagic.Scene({
-        triggerElement: `.contact-block`,
+        triggerElement: `.block-contact`,
         triggerHook: .9,
         duration: '70%'
       })
@@ -99,10 +100,10 @@ class ContactBlock extends Component {
 
   contentAnimation = () => {
     const controller = new ScrollMagic.Controller()
-    const tween = TweenMax.fromTo(`.contact-block .content`, 1, { y: 100, autoAlpha: 0}, { y: 0, autoAlpha: 1, ease: Power1.easeIn })
+    const tween = TweenMax.fromTo(`.block-contact .content`, 1, { y: 100, autoAlpha: 0}, { y: 0, autoAlpha: 1, ease: Power1.easeIn })
     
     new ScrollMagic.Scene({
-      triggerElement: `.contact-block`,
+      triggerElement: `.block-contact`,
       triggerHook: .2,
       duration: '20%'
     })
@@ -112,7 +113,7 @@ class ContactBlock extends Component {
 
   render(){
     return(
-      <ContactBlockView className="contact-block">
+      <ContactBlockView className="block-contact">
         <div className="cover"></div>
         <div className="content">
           <div className="left">

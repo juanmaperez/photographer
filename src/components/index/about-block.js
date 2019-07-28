@@ -42,8 +42,8 @@ const AboutBlockView = styled.div`
     .intro-text {
       position: relative;
       z-index: 10;
-      width: 100%;
-      font-size: 7vw;
+      width: 75%;
+      font-size: 6vw;
       color: #f0d0d5;
       line-height: 1.2;
       padding: 100vh 120px 50px;
@@ -133,7 +133,7 @@ class AboutBlock extends Component {
     const tween = TweenMax.to('.image', .00001, {className: '+=absolute'})
 
     new ScrollMagic.Scene({
-      triggerElement: '.works-block',
+      triggerElement: '.block-works',
       triggerHook: 1,
     })
     .setTween(tween)
@@ -143,7 +143,7 @@ class AboutBlock extends Component {
   render(){
     const { height } = this.props;
     return (
-      <AboutBlockView height={height}>
+      <AboutBlockView className="block-about" height={height}>
         <div className="about-wrapper">
     
           <div className="image">

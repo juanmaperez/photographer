@@ -24,7 +24,7 @@ const WorksBlockView = styled.div`
 `
 
 const WorksBlock = ({type, works}) => (
-  <WorksBlockView className="works-block">
+  <WorksBlockView className="block-works">
     <h2 className="section-title">{ type }</h2>
     { works.map( (work, index) => <WorkItem key={index} top={index} work={ work } />)}
   </WorksBlockView>

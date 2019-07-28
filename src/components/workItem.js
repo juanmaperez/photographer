@@ -21,13 +21,14 @@ const WorkItemView = styled.div`
       z-index: 5;
       position: absolute;
       transform: rotate(-90deg);
-      width: 250px;
-      bottom: 117px;
-      right: -145px;
+      width: 300px;
+      bottom: 145px;
+      right: -175px;
       font-size: 20px;
       letter-spacing: 1.2px;
       font-weight: lighter;
       color: #666;
+      text-transform: uppercase
     }
     .image-wrapper {
       z-index: 6;

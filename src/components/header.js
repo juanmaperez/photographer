@@ -66,16 +66,14 @@ class Header extends Component {
   }
   
   render() {
-    const { siteTitle } = this.props; 
-    
+    const { siteTitle, location } = this.props; 
     return (
       <HeaderView>
         <h1 className="web-title" data-text="Photographer" style={{ margin: 0 }}>
           <Link data-text="Photographer" to="/"> {siteTitle} </Link>
         </h1>
         <nav>
-          <Menu />
-          {/* <Link to="/contact"><span>[</span> <span className="text">Contact</span> <span>]</span> </Link> */}
+          <Menu location={location}/>
         </nav>
       </HeaderView>
     )

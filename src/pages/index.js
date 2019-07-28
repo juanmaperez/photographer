@@ -9,7 +9,7 @@ import AboutBlock from '../components/index/about-block'
 import WorksBlock from '../components/index/works-block'
 import ContactBlock from '../components/index/contact-block'
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, location }) => {
   const { edges } = data.allMarkdownRemark;
   const works = edges.map(work => work.node.frontmatter)
   const workTypes = works.reduce((workTypes, item) => {
@@ -22,7 +22,7 @@ const IndexPage = ({ data }) => {
   }, {})
 
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title="Home" />
       <MainBlock />
       <AboutBlock />
