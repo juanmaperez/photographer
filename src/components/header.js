@@ -1,7 +1,10 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React, { Component } from "react"
 import styled from 'styled-components';
+import PropTypes from "prop-types"
+
+import { Link } from "gatsby"
+import Menu from './menu'
+
 import { Power1, TweenMax } from 'gsap';
 import "./../styles/mixins.scss"
 import "./../styles/main.css"
@@ -71,7 +74,8 @@ class Header extends Component {
           <Link data-text="Photographer" to="/"> {siteTitle} </Link>
         </h1>
         <nav>
-          <Link to="/contact"><span>[</span> <span className="text">Contact</span> <span>]</span> </Link>
+          <Menu />
+          {/* <Link to="/contact"><span>[</span> <span className="text">Contact</span> <span>]</span> </Link> */}
         </nav>
       </HeaderView>
     )

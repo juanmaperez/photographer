@@ -21,9 +21,13 @@ const WorkItemView = styled.div`
       z-index: 5;
       position: absolute;
       transform: rotate(-90deg);
-      width: 200px;
-      bottom: 95px;
-      right: -115px;
+      width: 250px;
+      bottom: 117px;
+      right: -145px;
+      font-size: 20px;
+      letter-spacing: 1.2px;
+      font-weight: lighter;
+      color: #666;
     }
     .image-wrapper {
       z-index: 6;
@@ -90,7 +94,7 @@ class WorkItem extends Component {
     const { work, top } = this.props;
 
     const controller = new ScrollMagic.Controller()
-    const tween = TweenMax.fromTo(`.work-${work.type}-${top}`, 1, {y: 0}, {y: -100 * top , ease: Power1.easeIn })
+    const tween = TweenMax.fromTo(`.work-${work.type}-${top}`, 1, {y: 0}, {y:  top < 4  ? (-100 * top) : (-400 + (top * -10)) , ease: Power1.easeIn })
     
     new ScrollMagic.Scene({
       triggerElement: `.work-${work.type}-${top}`,

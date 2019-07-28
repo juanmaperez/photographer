@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import MainBlock from '../components/index/main-block'
 import AboutBlock from '../components/index/about-block'
 import WorksBlock from '../components/index/works-block'
-
+import ContactBlock from '../components/index/contact-block'
 
 const IndexPage = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
@@ -30,6 +30,7 @@ const IndexPage = ({ data }) => {
                                               key={workTypes[type].type} 
                                               type={workTypes[type].type} 
                                               works={workTypes[type].works} />)}
+      <ContactBlock />
     </Layout>
   )
 }

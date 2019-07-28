@@ -70,6 +70,7 @@ class MainBlock extends Component {
     .to('.second', 0.1,{className:"+=first"})
     .fromTo('.main-block-cover', .5, { scaleY: 1 }, { scaleY: 0, ease: Power1.easeIn})
     .staggerFromTo('.main-list li', .6, {y: 20, autoAlpha: 0 },{y: 0, autoAlpha: 1 }, 0.2)
+    .delay(2)
   }
 
   removeSocial = () =>{
