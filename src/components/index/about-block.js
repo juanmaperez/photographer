@@ -121,8 +121,8 @@ class AboutBlock extends Component {
 
     new ScrollMagic.Scene({
       triggerElement: '.about-wrapper',
-      triggerHook: .1,
-      duration: '30%'
+      triggerHook: .19,
+      duration: '20%'
     })
     .setTween(tween)
     .addTo(controller)
