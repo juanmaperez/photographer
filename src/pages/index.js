@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { graphql } from 'gatsby'
 
 import Layout from "../layouts/layout"
@@ -9,30 +9,76 @@ import AboutBlock from '../components/index/about-block'
 import WorksBlock from '../components/index/works-block'
 import ContactBlock from '../components/index/contact-block'
 
-const IndexPage = ({ data, location }) => {
-  const { edges } = data.allMarkdownRemark;
-  const works = edges.map(work => work.node.frontmatter)
-  const workTypes = works.reduce((workTypes, item) => {
-    if(!workTypes[item.type]){
-      workTypes[item.type] = { type: item.type, works: [item]}
-    } else {
-      workTypes[item.type].works = [...workTypes[item.type].works, item]
-    }
-    return workTypes
-  }, {})
+class IndexPage extends Component{
+  state = {    
+    animationCompleted: false,
+    workTypes : null 
+  }
 
-  return (
-    <Layout location={location}>
-      <SEO title="Home" />
-      <MainBlock />
-      <AboutBlock />
-      { Object.keys(workTypes).map(type => <WorksBlock 
-                                              key={workTypes[type].type} 
-                                              type={workTypes[type].type} 
-                                              works={workTypes[type].works} />)}
-      <ContactBlock />
-    </Layout>
-  )
+  componentDidMount(){
+    const { edges } = this.props.data.allMarkdownRemark;
+    const works =  edges.map(work => work.node.frontmatter); 
+
+    this.setState({
+      animationCompleted: !!this.checkCookies(),
+      workTypes: works.reduce((workTypes, item) => {
+        if(!workTypes[item.type]){
+          workTypes[item.type] = { type: item.type, works: [item]}
+        } else {
+          workTypes[item.type].works = [...workTypes[item.type].works, item]
+        }
+        return workTypes
+      }, {}) 
+    })
+  }
+
+  completeAnimation = () => {
+    this.setState({ animationCompleted : true } )
+    this.setCookie();
+  }
+
+  checkCookies = () => {
+    const cookie = document.cookie;
+    const allCookies = {}
+    cookie.split(';').forEach((cookie) => {
+      let el = cookie.split('=');
+      allCookies[el[0].trim().toString()] = el[1];
+    })
+    return (allCookies['animationCompleted']);
+  }
+
+  setCookie = () => {
+    const date = new Date();
+    const daysToExpire = 1;
+    const cookieName = 'animationCompleted';
+    const cookieValue = true;
+    date.setTime(date.getTime()+(daysToExpire*24*60*60*1000));
+    document.cookie = cookieName + "=" + cookieValue + "; expires=" + date.toGMTString();
+  }
+
+
+  
+  render(){
+    const { animationCompleted, workTypes } = this.state;
+    const { location } = this.props;
+
+    console.log('checked Cookies', animationCompleted)
+
+    return (
+      <Layout location={location}>
+        <SEO title="Home" />
+        { workTypes && <MainBlock markAsCompleted={this.completeAnimation.bind(this)} animationCompleted={animationCompleted}/>}
+        { animationCompleted && <AboutBlock /> }
+        { animationCompleted && Object.keys(workTypes).map(type => <WorksBlock 
+                                                key={workTypes[type].type} 
+                                                type={workTypes[type].type} 
+                                                works={workTypes[type].works} />)
+        }
+        { animationCompleted && <ContactBlock /> }
+      </Layout>
+    )
+  }
+
 }
 
 export const query = graphql`

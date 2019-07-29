@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { Power1, TimelineMax, TweenMax } from 'gsap'
+import { Power1, TimelineMax, TweenMax, Linear } from 'gsap'
 import ScrollMagic from 'scrollmagic/scrollmagic/minified/ScrollMagic.min';
 import 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min';
 import 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min';
@@ -31,6 +31,9 @@ const MainBlockView = styled.div`
     height: 100%;
     z-index: 10;
     transform-origin: 0 0;
+    &.no-visible {
+      display: none;
+    }
   }
   .main-list {
     position: absolute;
@@ -57,7 +60,9 @@ const MainBlockView = styled.div`
 class MainBlock extends Component {
 
   componentDidMount(){
-    this.animation();
+    if(!this.props.animationCompleted){
+      this.animation();
+    }
     this.removeSocial();
   }
 
@@ -65,11 +70,11 @@ class MainBlock extends Component {
     const tl = new TimelineMax()
     tl
     .fromTo('.first', 0.4,{ autoAlpha: 0 },{autoAlpha: 1 })
-    .fromTo('.main-block-cover', .5, { scaleX: 0 }, { scaleX: 1, ease: Power1.easeIn}, '+=0.9')
+    .fromTo('.main-block-cover', .5, { scaleX: 0 }, { className: '-=no-visible', scaleX: 1, ease: Power1.easeIn}, '+=0.9')
     .to('.first', 0.2,{className:"+=second"})
     .to('.second', 0.1,{className:"+=first"})
     .fromTo('.main-block-cover', .5, { scaleY: 1 }, { scaleY: 0, ease: Power1.easeIn})
-    .staggerFromTo('.main-list li', .6, {y: 20, autoAlpha: 0 },{y: 0, autoAlpha: 1 }, 0.2)
+    .staggerFromTo('.main-list li', .6, {y: 20, autoAlpha: 0 },{y: 0, autoAlpha: 1, ease: Linear.easeNone, onComplete: this.animationIsCompleted }, 0.2)
     .delay(2)
   }
 
@@ -86,10 +91,15 @@ class MainBlock extends Component {
     .addTo(controller)
   }
 
+
+  animationIsCompleted = () => {
+    this.props.markAsCompleted()
+  }
+
   render(){
     return (
       <MainBlockView className="first block-home">
-        <div className="main-block-cover"></div>
+        <div className="main-block-cover no-visible"></div>
         <ul className="main-list">
           <li><span>Ig: [</span> <span className="text">@ladyphoto</span> <span>]</span></li>
           <li><span>Tw: [</span> <span className="text">@ladyMadrid</span> <span>]</span></li>
