@@ -11,6 +11,7 @@ const ContactBlockView = styled.div`
   height: 100vh;
   background: #fbf9f3;
   position: relative;
+  overflow: hidden;
   .cover {
     position: absolute;
     top: 0;
@@ -63,7 +64,7 @@ const ContactBlockView = styled.div`
       .top {
         letter-spacing: 1px;
         padding: 20px 0px;
-        border-bottom: 8px solid #fff; 
+        border-bottom: 3px solid #fff; 
       }
       .bottom {
         padding: 20px 0px;

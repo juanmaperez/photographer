@@ -62,8 +62,6 @@ class IndexPage extends Component{
     const { animationCompleted, workTypes } = this.state;
     const { location } = this.props;
 
-    console.log('checked Cookies', animationCompleted)
-
     return (
       <Layout location={location}>
         <SEO title="Home" />
