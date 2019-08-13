@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 import ScrollMagic from 'scrollmagic/scrollmagic/minified/ScrollMagic.min';
@@ -110,12 +111,12 @@ class WorkItem extends Component {
     const { work, top } = this.props;
     return(
       <WorkItemView top={top}>
-        <div className={`work-container work-${work.type}-${top}`}>
-          <div className={`image-wrapper wrapper-${work.type}-${top}`}>
-            <div className={`image image-${work.type}-${top}`} style={{'background': `url(${work.thumbnail.childImageSharp.fluid.src})`}}></div>
-         </div>
-         <span className="title">{ work.title }</span>
-        </div>
+          <div className={`work-container work-${work.type}-${top}`}>
+            <Link to={`${work.path}`} className={`image-wrapper wrapper-${work.type}-${top}`}>
+              <div className={`image image-${work.type}-${top}`} style={{'background': `url(${work.thumbnail.childImageSharp.fluid.src})`}}></div>
+            </Link>
+            <Link to={`${work.path}`} className="title">{ work.title }</Link>
+          </div>
       </WorkItemView>
     )
   }

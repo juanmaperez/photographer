@@ -16,3 +16,58 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
     },
   })
 }
+
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
+  const postTemplate = path.resolve('src/templates/post.js');
+
+  return graphql (
+    `{
+      allMarkdownRemark {
+        edges {
+          node {
+            html
+            id
+            frontmatter {
+              date
+              path
+              title
+              description
+              thumbnail {
+                childImageSharp {
+                    fluid(maxWidth: 1500) {
+                        src
+                    }
+                }
+              }
+              images {
+                title
+                image {
+                  childImageSharp {
+                    fluid(maxWidth: 1500) {
+                        src
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }`
+  ).then( result => {
+    if (result.errors) {
+      return Promise.reject (result.errors)
+    }
+
+    const posts = result.data.allMarkdownRemark.edges;
+
+    posts.forEach(({ node }, index ) => {
+      createPage({
+        path: node.frontmatter.path,
+        component: postTemplate
+      })
+    })
+  })
+
+}
