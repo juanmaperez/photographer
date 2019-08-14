@@ -19,37 +19,17 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
-  const postTemplate = path.resolve('src/templates/post.js');
+  const workTemplate = path.resolve('src/templates/workTemplate.js');
 
   return graphql (
     `{
       allMarkdownRemark {
         edges {
           node {
-            html
             id
             frontmatter {
               date
-              path
-              title
-              description
-              thumbnail {
-                childImageSharp {
-                    fluid(maxWidth: 1500) {
-                        src
-                    }
-                }
-              }
-              images {
-                title
-                image {
-                  childImageSharp {
-                    fluid(maxWidth: 1500) {
-                        src
-                    }
-                  }
-                }
-              }
+              path     
             }
           }
         }
@@ -65,9 +45,44 @@ exports.createPages = ({ actions, graphql }) => {
     posts.forEach(({ node }, index ) => {
       createPage({
         path: node.frontmatter.path,
-        component: postTemplate
+        component: workTemplate
       })
     })
   })
 
 }
+
+
+// `{
+//   allMarkdownRemark {
+//     edges {
+//       node {
+//         html
+//         id
+//         frontmatter {
+//           date
+//           path
+//           title
+//           description
+//           thumbnail {
+//             childImageSharp {
+//                 fluid(maxWidth: 1500) {
+//                     src
+//                 }
+//             }
+//           }
+//           images {
+//             title
+//             image {
+//               childImageSharp {
+//                 fluid(maxWidth: 1500) {
+//                     src
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }`
