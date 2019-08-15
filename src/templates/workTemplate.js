@@ -3,51 +3,79 @@ import { graphql } from 'gatsby';
 import Layout from './../layouts/layout'
 import styled from 'styled-components'
 
+import { Scene, Controller } from 'react-scrollmagic'
+
 import Image from './../components/image';
+import ContactBlock from './../components/index/contact-block';
 
 const WorkTemplateView = styled.div`
-  width: 60%;
-  margin: 0px auto;
-  padding: 120px 0px;
-  h1 {
-    text-transform: uppercase;
-    font-size: 140px;
-    margin-bottom: 30px;
-  }
-  .description {
-    font-size: 18px;
-    font-weight: lighter;
-    line-height: 1.4;
-    margin-bottom: 60px;
-  }
-  .work-image {
-    margin-bottom: 90px;
-    img {
-      max-width: 100%;
-      margin-bottom: 10px;
-    }
-    h3 { 
+  background: #fbf9f3;
+  width: 100%;
+
+  .work-template-container {
+    width: 60%;
+    margin: 0px auto;
+    padding: 120px 0px;
+    max-width: 1000px;
+    background: #fbf9f3;
+  
+    h1 {
       text-transform: uppercase;
-      font-size: 20px;
-      letter-spacing: 1px;
+      font-size: 140px;
+      margin-bottom: 30px;
+    }
+    .description {
+      font-size: 18px;
+      font-weight: lighter;
+      line-height: 1.4;
+      margin-bottom: 60px;
+    }
+    .work-image {
+      margin-bottom: 90px;
+      .element {
+        opacity: 0;
+        transition: opacity 300ms linear;
+        &.visible {
+          opacity: 1;
+        }
+      }
+      img {
+        max-width: 100%;
+        margin-bottom: 10px;
+      }
+      h3 { 
+        text-transform: uppercase;
+        font-size: 20px;
+        letter-spacing: 1px;
+      }
     }
   }
+  
 `
 
-const WorkTemplate = ({ data }) => {
+const WorkTemplate = ( { data, location } ) => {
   const { markdownRemark : work } = data;
-  const { frontmatter, html } = work; 
+  const { frontmatter } = work;
   return (
-    <Layout>
+    <Layout location={ location}>
       <WorkTemplateView>
-        <h1>{ frontmatter.title }</h1>
-        <div className="description">
-          <p>{ frontmatter.description }</p>
+        <div className="work-template-container">
+          <h1>{ frontmatter.title }</h1>
+          <div className="description">
+            <p>{ frontmatter.description }</p>
+          </div>
+          { frontmatter.images.map( element => <div key={ element.title } className="work-image">
+            <Controller>
+              <Scene classToggle={'visible'} triggerHook={0.70}>
+                <div className="element">
+                  <Image key={ element.title } imageUrl={element.image.childImageSharp.fluid.src} title={element.title}/>
+                </div>
+              </Scene>
+            </Controller>
+            <h3 >{ element.title }</h3>
+          </div>)}
         </div>
-        { frontmatter.images.map( element => <div className="work-image">
-          <Image imageUrl={element.image.childImageSharp.fluid.src} title={element.title}/>
-          <h3 >{ element.title }</h3>
-        </div>)}
+        <ContactBlock />
       </WorkTemplateView>
     </Layout>
   )

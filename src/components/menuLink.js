@@ -31,7 +31,6 @@ const makeScrollTo = (to, location, name) => {
 }
 
 const getElementOffset = (element) => {
-  console.log(element)
   let xPosition = 0;
   let yPosition = 0;
 

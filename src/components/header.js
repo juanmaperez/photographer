@@ -36,7 +36,7 @@ const HeaderView = styled.header`
     margin-top: 7px;
     a { 
       font-family: 'Questrial';
-      font-size: 24px;
+      font-size: 18px;
       cursor: pointer;
       text-transform: capitalize;
       color: #323846;
@@ -67,13 +67,16 @@ class Header extends Component {
   
   render() {
     const { siteTitle, location } = this.props; 
+    console.log(location)
+
     return (
       <HeaderView>
         <h1 className="web-title" data-text="Photographer" style={{ margin: 0 }}>
           <Link data-text="Photographer" to="/"> {siteTitle} </Link>
         </h1>
         <nav>
-          <Menu location={location}/>
+          { location.pathname === '/' && <Menu location={location}/>}
+          { location.pathname !== '/' && <Link to="/"> Back </Link>}
         </nav>
       </HeaderView>
     )

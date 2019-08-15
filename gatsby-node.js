@@ -51,38 +51,3 @@ exports.createPages = ({ actions, graphql }) => {
   })
 
 }
-
-
-// `{
-//   allMarkdownRemark {
-//     edges {
-//       node {
-//         html
-//         id
-//         frontmatter {
-//           date
-//           path
-//           title
-//           description
-//           thumbnail {
-//             childImageSharp {
-//                 fluid(maxWidth: 1500) {
-//                     src
-//                 }
-//             }
-//           }
-//           images {
-//             title
-//             image {
-//               childImageSharp {
-//                 fluid(maxWidth: 1500) {
-//                     src
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }`
