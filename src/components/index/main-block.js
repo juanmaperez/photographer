@@ -14,6 +14,7 @@ const MainBlockView = styled.div`
   width: 100vw;
   position: relative;
   &.first {
+    background-attachment: fixed !important;
     background-size: cover !important;
     background-position: center center !important;
     background: url(${backgroundFirst});
@@ -54,6 +55,11 @@ const MainBlockView = styled.div`
       }
     }
   }
+
+  @media(min-width: 1200px){}
+  @media(max-width: 1199px){}
+  @media(max-width: 768px){}
+  @media(max-width: 520px){}
 `
 
 

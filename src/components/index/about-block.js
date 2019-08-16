@@ -20,6 +20,7 @@ const AboutBlockView = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
   .about-wrapper {
     background: #fbf9f3;
     position: relative;

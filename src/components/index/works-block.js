@@ -8,8 +8,9 @@ const WorksBlockView = styled.div`
   width: 100vw;
   min-height: 100vh;
   background: #fbf9f3;
-  padding: 300px 17vw 100px;
+  padding: 300px 200px 100px;
   box-sizing: border-box;
+  overflow: hidden;
 
   .section-title {
     position: absolute;
@@ -20,6 +21,10 @@ const WorksBlockView = styled.div`
     font-family: 'MFred';
     color: #B7C8Cb;
     z-index: 10;
+  }
+
+  @media(max-width: 1300px){
+    padding: 300px 120px 100px;
   }
 `
 
