@@ -88,6 +88,30 @@ const ContactBlockView = styled.div`
     }
   }
 
+  @media(max-width: 1024px){
+    .content {
+      flex-direction: column;
+      justify-content: center;
+      .left {
+        flex-direction: row;
+        flex: 1;
+        padding: 50px 0px 0px;
+        justify-content: flex-start;
+        align-items: flex-end;
+        .month , .year {
+          text-align: left;
+          width: min-content;
+          display:inline;
+        }
+      }
+      .right {
+        flex: 1;
+        padding: 20px 0;
+        justify-content: flex-start;
+      }
+    }
+  }
+
 ` 
 
 class ContactBlock extends Component {
@@ -117,7 +141,7 @@ class ContactBlock extends Component {
     new ScrollMagic.Scene({
       triggerElement: `.block-contact`,
       triggerHook: .2,
-      duration: '20%'
+      duration: '15%'
     })
     .setTween(tween)
     .addTo(controller)

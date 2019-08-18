@@ -19,10 +19,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'MFred', 'Oswald';
 }
 
-html, body, main, footer, header {
+html, body, .main, footer, header {
   width: 100%;
   max-width: 100%;
-  background: #f6eee3;
+  background: #fbf9f3;
 }
 
 html, body, div, span, object, iframe,

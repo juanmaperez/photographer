@@ -33,7 +33,6 @@ const HeaderView = styled.header`
     }
   }
   nav {
-    margin-top: 7px;
     a { 
       font-family: 'Questrial';
       font-size: 18px;
@@ -47,6 +46,11 @@ const HeaderView = styled.header`
         .text {text-decoration: line-through}
       }
     }
+  }
+
+  @media(max-width: 480px){
+    padding: 30px 20px 20px;
+
   }
 `
 

@@ -13,6 +13,7 @@ const MainBlockView = styled.div`
   min-height: 100vh;
   width: 100vw;
   position: relative;
+  overflow: hidden;
   &.first {
     background-attachment: fixed !important;
     background-size: cover !important;
@@ -59,7 +60,11 @@ const MainBlockView = styled.div`
   @media(min-width: 1200px){}
   @media(max-width: 1199px){}
   @media(max-width: 768px){}
-  @media(max-width: 520px){}
+  @media(max-width: 520px){
+    .main-list {
+      right: 20px;
+    }
+  }
 `
 
 

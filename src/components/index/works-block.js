@@ -25,6 +25,26 @@ const WorksBlockView = styled.div`
 
   @media(max-width: 1300px){
     padding: 300px 120px 100px;
+    
+  }
+  @media(max-width: 1024px){
+    padding: 200px 90px 100px;
+    .section-title {
+      top: 60px;
+      left: 50px;
+    }
+  }
+  @media(max-width: 768px){
+    padding: 150px 60px 100px;
+    .section-title {
+      top: 40px;
+      left: 50px;
+      font-size: 22vw;
+    }
+  }
+
+  @media(max-width: 480px){
+    padding: 100px 25px 100px;
   }
 `
 

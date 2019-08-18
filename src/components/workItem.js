@@ -72,11 +72,25 @@ const WorkItemView = styled.div`
 
 
   @media(max-width: 768px){}
-  @media(max-width: 520px){}
+  @media(max-width: 480px){
+    height: 800px;
+    .work-container {
+      height: 600px !important;
+      width: 500px !important;
+      background: grey;
+      .image-wrapper { 
+        height: 700px;
+        .image {
+          height: 800px;
+        } 
+      }
+    }
+  }
 
 `
 
 class WorkItem extends Component {
+
 
   componentDidMount(){
     this.titleAnimation()
