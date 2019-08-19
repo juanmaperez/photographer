@@ -200,3 +200,8 @@ input, select {
   ul, ol {
     list-style: none;
   }
+
+  @media(max-width: 1024px){
+    .works-section { padding-top: 200px }
+  }
+ 

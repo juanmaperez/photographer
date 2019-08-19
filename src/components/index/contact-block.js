@@ -112,6 +112,23 @@ const ContactBlockView = styled.div`
     }
   }
 
+  @media(max-width: 480px){
+    .content {
+      padding: 50px 20px;
+      .left {
+        padding: 50px 0px 10px;
+
+        .month , .year {
+          font-size: 100px;
+        }
+      }
+      .right {
+        padding: 0px 0px 30px;
+        font-size: 20px;
+      }
+    }
+  }
+
 ` 
 
 class ContactBlock extends Component {

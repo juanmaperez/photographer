@@ -90,7 +90,6 @@ const AboutBlockView = styled.div`
     }
   }
   @media(max-width: 1024px) {
-    margin-bottom: 100px;
     .about-wrapper {
 
       .intro-text {
@@ -104,7 +103,6 @@ const AboutBlockView = styled.div`
   @media(max-width: 768px) {
     padding-top:200px;
     min-height: 400px;
-    margin-bottom: 100px;
     .about-wrapper {
       .intro-text {
         font-size: 9vw;
@@ -120,6 +118,7 @@ const AboutBlockView = styled.div`
     min-height: ${props => props.height/1.2}px;
     .about-wrapper {
       .intro-text {
+        padding:10px;
         -webkit-text-stroke: 0px #323846;
         font-size: 9vw;
         p {
@@ -165,7 +164,7 @@ class AboutBlock extends Component {
     const tween = TweenMax.to('.image', .00001, {className: '+=absolute'})
 
     new ScrollMagic.Scene({
-      triggerElement: '.block-works',
+      triggerElement: '.works-section',
       triggerHook: 1,
     })
     .setTween(tween)

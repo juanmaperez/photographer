@@ -73,15 +73,15 @@ const WorkItemView = styled.div`
 
   @media(max-width: 768px){}
   @media(max-width: 480px){
-    height: 800px;
+    height: 700px;
     .work-container {
-      height: 600px !important;
-      width: 500px !important;
+      height: 500px !important;
+      width: 350px !important;
       background: grey;
       .image-wrapper { 
-        height: 700px;
+        height: 500px;
         .image {
-          height: 800px;
+          height: 650px;
         } 
       }
     }
@@ -121,7 +121,7 @@ class WorkItem extends Component {
     
     new ScrollMagic.Scene({
       triggerElement: `.wrapper-${work.type}-${top}`,
-      triggerHook: .2,
+      triggerHook: .1,
       duration: '110%'
     })
     .setTween(tween)
@@ -132,7 +132,7 @@ class WorkItem extends Component {
     const { work, top } = this.props;
 
     const controller = new ScrollMagic.Controller()
-    const tween = TweenMax.fromTo(`.work-${work.type}-${top}`, 1, {y: 0}, {y:  top < 4  ? (-100 * top) : (-200 + (top * -10)) , ease: Power1.easeIn })
+    const tween = TweenMax.fromTo(`.work-${work.type}-${top}`, 1, {y: 0}, {y:  top < 4  ? (-75 * top) : (-200 + (top * -10)) , ease: Power1.easeIn })
     
     new ScrollMagic.Scene({
       triggerElement: `.work-${work.type}-${top}`,

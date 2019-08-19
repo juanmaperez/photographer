@@ -67,11 +67,14 @@ class IndexPage extends Component{
         <SEO title="Home" />
         { workTypes && <MainBlock markAsCompleted={this.completeAnimation.bind(this)} animationCompleted={animationCompleted}/>}
         { animationCompleted && <AboutBlock /> }
-        { animationCompleted && Object.keys(workTypes).map(type => <WorksBlock 
-                                                key={workTypes[type].type} 
-                                                type={workTypes[type].type} 
-                                                works={workTypes[type].works} />)
-        }
+        <div className="works-section">
+          { animationCompleted && Object.keys(workTypes).map((type, index) => <WorksBlock
+                                                  index={index} 
+                                                  key={workTypes[type].type} 
+                                                  type={workTypes[type].type} 
+                                                  works={workTypes[type].works} />)
+          }
+        </div>
         { animationCompleted && <ContactBlock /> }
       </Layout>
     )
