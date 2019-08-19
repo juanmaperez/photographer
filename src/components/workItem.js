@@ -19,27 +19,30 @@ const WorkItemView = styled.div`
     position: absolute;
     max-height:100%;
     overflow:hidden;
-  
-    .title {
-      z-index: 5;
-      position: absolute;
-      transform: rotate(-90deg);
-      width: 300px;
-      bottom: 140px;
-      right: -175px;
-      font-size: 20px;
-      letter-spacing: 1.2px;
-      font-weight: lighter;
-      color: #666;
-      text-transform: uppercase
-    }
+
     .image-wrapper {
       z-index: 6;
       top: 0;
-      position: relative;
-      max-width: 100%;
-      height: 800px;
-
+      position: absolute;
+      width: 600px;
+      height: 900px;
+  
+      .title {
+        z-index: 5;
+        position: absolute;
+        transform: rotate(-90deg);
+        width: 180px;
+        bottom: 80px;
+         ${ props => Number(props.top) % 2 === 0 ? 'right: -88px' : 'left: -88px;' };
+        padding: 5px 10px;
+        font-size: 20px;
+        letter-spacing: 1px;
+        font-weight: lighter;
+        color: #666;
+        text-transform: uppercase;
+        background: #fbf9f3;
+        font-family: 'Mfred';
+      }
       .image {
         top: -150px;
         position: relative;
@@ -59,7 +62,8 @@ const WorkItemView = styled.div`
       width: 500px !important;
       background: grey;
       .image-wrapper { 
-        height: 900px;
+        height: 700px !important;
+        width: 500px !important;
         .image {
           height: 900px;
         } 
@@ -76,7 +80,8 @@ const WorkItemView = styled.div`
       width: 350px !important;
       background: grey;
       .image-wrapper { 
-        height: 500px;
+        height: 500px !important;
+        width: 350px !important;
         .image {
           height: 650px;
         } 
@@ -90,25 +95,11 @@ class WorkItem extends Component {
 
 
   componentDidMount(){
-    this.titleAnimation()
     this.imageAnimation()
     this.imageWrapperAnimation()
   }
 
-  titleAnimation(){
-    const { work, top } = this.props;
-
-    const controller = new ScrollMagic.Controller()
-    const tween = TweenMax.fromTo(`.image-${work.type}-${top} .title`, 1, { autoAlpha: 0, x: -40}, {autoAlpha: 1, x: 0, ease: Power1.easeIn })
-    
-    new ScrollMagic.Scene({
-      triggerElement: `.work-${work.type}-${top}`,
-      triggerHook: .35,
-      duration: '25%'
-    })
-    .setTween(tween)
-    .addTo(controller)
-  }
+  
 
   imageAnimation(){
     const { work, top } = this.props;
@@ -147,8 +138,8 @@ class WorkItem extends Component {
           <div className={`work-container work-${work.type}-${top}`}>
             <Link to={`${work.path}`} className={`image-wrapper wrapper-${work.type}-${top}`}>
               <div className={`image image-${work.type}-${top}`} style={{'background': `url(${work.thumbnail.childImageSharp.fluid.src})`}}>
-                <span to={`${work.path}`} className="title">{ work.title }</span>
               </div>
+              <span to={`${work.path}`} className="title">{ work.title }</span>
             </Link>
           </div>
       </WorkItemView>
