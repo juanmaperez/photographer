@@ -2,7 +2,7 @@
 path: '/moments/a-day-out-of-work'
 date: '2018-03-18T12:34:00+00:00'
 title: "A day out of work"
-thumbnail: ./wheel.jpg
+thumbnail: ./sit.jpg
 type: moments
 images: [
   { title: 'Get in with me',  image: './sign.jpg'},

@@ -12,16 +12,13 @@ const WorkItemView = styled.div`
   height: 1000px;
   display: flex;
   justify-content: ${ props => props.top % 2 ? 'flex-start' : 'flex-end' };
-  border: 1px solid green;
 
   .work-container {
-    border: 1px solid red;
     width: 600px;
     height: 900px;
     position: absolute;
     max-height:100%;
     overflow:hidden;
-    border: 1px solid blue;
   
     .title {
       z-index: 5;

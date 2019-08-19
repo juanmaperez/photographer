@@ -50,6 +50,20 @@ const WorkTemplateView = styled.div`
       }
     }
   }
+
+  @media(max-width: 480px){
+    .work-template-container {
+      width:90%;
+      h1 {
+        text-transform: uppercase;
+        font-size: 120px;
+        margin-bottom: 30px;
+      }
+      .work-image {
+        margin-bottom: 50px;
+      }
+    }
+  }
   
 `
 

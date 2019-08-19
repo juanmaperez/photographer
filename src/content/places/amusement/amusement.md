@@ -2,7 +2,7 @@
 path: '/places/a-day-out-of-work'
 date: '2018-03-18T12:34:00+00:00'
 title: "A day out of work"
-thumbnail: ./sign.jpg
+thumbnail: ./sit.jpg
 type: places
 images: [
   { title: 'Get in with me',  image: './sign.jpg'},

@@ -63,6 +63,7 @@ const MainBlockView = styled.div`
   @media(max-width: 520px){
     .main-list {
       right: 20px;
+      bottom: 10px;
     }
   }
 `
