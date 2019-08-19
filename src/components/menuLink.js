@@ -22,11 +22,13 @@ const makeScrollTo = (to, location, name) => {
     navigate(to)
   } else {
     const element = document.querySelector(`.block-${name}`)
-    window.scroll({
-      top: getElementOffset(element).y,
-      left: 0,
-      behavior: 'smooth'
-    })
+    if (typeof window !== `undefined`) {
+      window.scroll({
+        top: getElementOffset(element).y,
+        left: 0,
+        behavior: 'smooth'
+      })
+    }
   }
 }
 
