@@ -51,6 +51,18 @@ const WorkTemplateView = styled.div`
     }
   }
 
+  @media(max-width: 1024px){
+    .work-template-container {
+      width:75%;
+    }
+  }
+
+  @media(max-width: 768px){
+    .work-template-container {
+      width:80%;
+    }
+  }
+
   @media(max-width: 480px){
     .work-template-container {
       width:90%;

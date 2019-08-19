@@ -5,8 +5,8 @@ title: "A day out of work"
 thumbnail: ./dinamo.jpg
 type: projects
 images: [
-  { title: 'Get in with me',  image: './sign.jpg'},
   { title: 'The guardian in the rye',  image: './sit.jpg'},
+  { title: 'Get in with me',  image: './sign.jpg'},
   { title: 'All around',  image: './wheel.jpg'},
   { title: 'So high',  image: './dinamo.jpg'},
   { title: 'Playing all day',  image: './games.jpg'}
