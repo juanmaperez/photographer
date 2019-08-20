@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { TweenMax, Power1 } from 'gsap';
 
 import ScrollMagic from 'ScrollMagic'
-require('animation.gsap');
+import 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min';
 
 
 const ContactBlockView = styled.div`

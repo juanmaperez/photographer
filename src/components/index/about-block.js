@@ -7,7 +7,7 @@ import girl from './../../assets/images/girl.jpg'
 
 import { Controller, Scene } from 'react-scrollmagic';
 import ScrollMagic from 'ScrollMagic'
-require('animation.gsap');
+import 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min';
 
 const AboutBlockView = styled.div`
   min-height: 100vh;
