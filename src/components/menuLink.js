@@ -17,11 +17,12 @@ const MenuLinkView = styled.li`
   }
 `
 
-const makeScrollTo = (to, location, name) => {
+const makeScrollTo = (to, location, name, closeMenu) => {
   if( to === '/photographer' && to !== location.pathname){
     navigate(to)
   } else {
     const element = document.querySelector(`.block-${name}`)
+    closeMenu()
     if (typeof window !== `undefined`) {
       window.scroll({
         top: getElementOffset(element).y,
@@ -42,11 +43,10 @@ const getElementOffset = (element) => {
       element = element.offsetParent;
   }
   
-  props.closeMenu();
   return { x: xPosition, y: yPosition };
 }
 
-const MenuLink = (props) => <MenuLinkView><span onClick={ makeScrollTo.bind(null, props.to, props.location, props.name) }><span>[</span> { props.name } <span>]</span></span></MenuLinkView>
+const MenuLink = (props) => <MenuLinkView><span onClick={ makeScrollTo.bind(null, props.to, props.location, props.name, props.closeMenu) }><span>[</span> { props.name } <span>]</span></span></MenuLinkView>
 
 
 export default MenuLink;
