@@ -3,8 +3,6 @@ import { graphql } from 'gatsby';
 import Layout from './../layouts/layout'
 import styled from 'styled-components'
 
-import { Scene, Controller } from 'react-scrollmagic'
-
 import Image from './../components/image';
 import ContactBlock from './../components/index/contact-block';
 
@@ -33,11 +31,7 @@ const WorkTemplateView = styled.div`
     .work-image {
       margin-bottom: 90px;
       .element {
-        opacity: 0;
         transition: opacity 300ms linear;
-        &.visible {
-          opacity: 1;
-        }
       }
       img {
         max-width: 100%;
@@ -85,23 +79,20 @@ const WorkTemplate = ( { data, location } ) => {
   return (
     <Layout location={ location}>
       <WorkTemplateView>
+        hey
         <div className="work-template-container">
           <h1>{ frontmatter.title }</h1>
           <div className="description">
             <p>{ frontmatter.description }</p>
           </div>
           { frontmatter.images.map( element => <div key={ element.title } className="work-image">
-            <Controller>
-              <Scene classToggle={'visible'} triggerHook={0.70}>
-                <div className="element">
-                  <Image key={ element.title } imageUrl={element.image.childImageSharp.fluid.src} title={element.title}/>
-                </div>
-              </Scene>
-            </Controller>
+            <div className="element">
+              <Image key={ element.title } imageUrl={element.image.childImageSharp.fluid.src} title={element.title} />
+            </div>
             <h3 >{ element.title }</h3>
           </div>)}
         </div>
-        <ContactBlock />
+        <ContactBlock /> 
       </WorkTemplateView>
     </Layout>
   )
@@ -113,7 +104,6 @@ export const WorkQuery = graphql`
       html
       id
       frontmatter {
-        date
         path
         title
         description
@@ -138,6 +128,5 @@ export const WorkQuery = graphql`
     }
   }
 `
-
 
 export default WorkTemplate;

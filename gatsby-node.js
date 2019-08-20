@@ -42,7 +42,6 @@ exports.createPages = ({ actions, graphql }) => {
           node {
             id
             frontmatter {
-              date
               path     
             }
           }
@@ -57,11 +56,13 @@ exports.createPages = ({ actions, graphql }) => {
     const posts = result.data.allMarkdownRemark.edges;
 
     posts.forEach(({ node }) => {
+      console.log(node.frontmatter)
       createPage({
         path: node.frontmatter.path,
         component: WorkTemplate
       })
     })
   })
-
 }
+
+
