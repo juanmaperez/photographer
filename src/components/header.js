@@ -76,7 +76,7 @@ class Header extends Component {
     return (
       <HeaderView>
         <h1 className="web-title" data-text="Photographer" style={{ margin: 0 }}>
-          <Link data-text="Photographer" to="/photographer"> {siteTitle} </Link>
+          <Link data-text="Photographer" to="/"> {siteTitle} </Link>
         </h1>
         <nav>
           { location.pathname === '/photographer/' && <Menu location={location}/>}

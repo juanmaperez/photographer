@@ -18,7 +18,7 @@ const MenuLinkView = styled.li`
 `
 
 const makeScrollTo = (to, location, name, closeMenu) => {
-  if( to === '/photographer' && to !== location.pathname){
+  if( to === '/' && to !== location.pathname){
     navigate(to)
   } else {
     const element = document.querySelector(`.block-${name}`)
