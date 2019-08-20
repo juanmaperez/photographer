@@ -1,9 +1,9 @@
 import React from "react"
 import { Link } from 'gatsby'
-import Layout from "../layouts/layout"
-import SEO from "../components/seo"
+import Layout from "./../../layouts/layout"
+import SEO from "./../../components/seo"
 import styled from 'styled-components'
-import notFoundImage from './../assets/images/404.jpg'
+import notFoundImage from './../../assets/images/404.jpg'
 
 const NotFoundView = styled.div`
   height: 100vh;
