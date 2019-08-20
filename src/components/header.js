@@ -71,6 +71,7 @@ class Header extends Component {
   
   render() {
     const { siteTitle, location } = this.props; 
+    console.log(location)
 
     return (
       <HeaderView>
@@ -78,8 +79,8 @@ class Header extends Component {
           <Link data-text="Photographer" to="/"> {siteTitle} </Link>
         </h1>
         <nav>
-          { location.pathname === '/' && <Menu location={location}/>}
-          { location.pathname !== '/' && <Link to="/"> Back </Link>}
+          { location.pathname === '/photographer' && <Menu location={location}/>}
+          { location.pathname !== '/photographer' && <Link to="/"> Back </Link>}
         </nav>
       </HeaderView>
     )
