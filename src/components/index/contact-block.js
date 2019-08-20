@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import ScrollMagic from 'scrollmagic/scrollmagic/minified/ScrollMagic.min';
-import 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min';
-import 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min';
 import { TweenMax, Power1 } from 'gsap';
+
+import ScrollMagic from 'ScrollMagic'
+require('animation.gsap');
+
 
 const ContactBlockView = styled.div`
   width: 100vw;

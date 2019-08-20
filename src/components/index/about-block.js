@@ -1,14 +1,13 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
-
-import { Controller, Scene } from 'react-scrollmagic';
-import ScrollMagic from 'scrollmagic/scrollmagic/minified/ScrollMagic.min';
-import 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min';
-import 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min';
 import { TweenMax } from 'gsap';
 
 import Image from './../image'
 import girl from './../../assets/images/girl.jpg'
+
+import { Controller, Scene } from 'react-scrollmagic';
+import ScrollMagic from 'ScrollMagic'
+require('animation.gsap');
 
 const AboutBlockView = styled.div`
   min-height: 100vh;

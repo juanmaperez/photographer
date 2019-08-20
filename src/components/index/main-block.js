@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import { Power1, TimelineMax, TweenMax, Linear } from 'gsap'
-import ScrollMagic from 'scrollmagic/scrollmagic/minified/ScrollMagic.min';
-import 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min';
-import 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min';
 
 import backgroundSecond from './../../assets/images/first.jpg'
 import backgroundFirst from './../../assets/images/second.jpg'
+
+import ScrollMagic from 'ScrollMagic'
 
 const MainBlockView = styled.div`
   min-height: 100vh;

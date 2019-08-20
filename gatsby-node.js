@@ -7,6 +7,10 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       rules: stage === 'build-html'
         ? [
             {
+              test: /ScrollMagic/,
+              use: loaders.null(),
+            },
+            {
               test: /scrollmagic/,
               use: loaders.null(),
             }
