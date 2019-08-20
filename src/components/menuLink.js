@@ -41,7 +41,8 @@ const getElementOffset = (element) => {
       yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
       element = element.offsetParent;
   }
-
+  
+  props.closeMenu();
   return { x: xPosition, y: yPosition };
 }
 

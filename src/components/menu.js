@@ -116,10 +116,10 @@ class Menu extends Component {
         </div>
         <div className={ open ? 'open menu-list': 'menu-list'}>
           <ul>
-            <MenuLink name="home" to={'/photographer'} location={this.props.location }  />
-            <MenuLink name="about" to={'/photographer/about'} location={this.props.location }  />
-            <MenuLink name="works" to={'/photographer/works'} location={this.props.location }  />
-            <MenuLink name="contact" to={'/photographer/contact'} location={this.props.location }  />  
+            <MenuLink name="home" to={'/photographer'} location={this.props.location } closeMenu={this.toggleMenu.bind(this)} />
+            <MenuLink name="about" to={'/photographer/about'} location={this.props.location } closeMenu={this.toggleMenu.bind(this)} />
+            <MenuLink name="works" to={'/photographer/works'} location={this.props.location } closeMenu={this.toggleMenu.bind(this)} />
+            <MenuLink name="contact" to={'/photographer/contact'} location={this.props.location } closeMenu={this.toggleMenu.bind(this)} />  
           </ul>
         </div>
       </MenuView>

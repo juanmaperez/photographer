@@ -33,7 +33,8 @@ const HeaderView = styled.header`
     }
   }
   nav {
-    a { 
+    .back { 
+      margin-top: 5px;
       font-family: 'Questrial';
       font-size: 18px;
       cursor: pointer;
@@ -71,16 +72,15 @@ class Header extends Component {
   
   render() {
     const { siteTitle, location } = this.props; 
-    console.log(location)
 
     return (
       <HeaderView>
         <h1 className="web-title" data-text="Photographer" style={{ margin: 0 }}>
-          <Link data-text="Photographer" to="/"> {siteTitle} </Link>
+          <Link data-text="Photographer" to="/photographer"> {siteTitle} </Link>
         </h1>
         <nav>
-          { location.pathname === '/photographer' && <Menu location={location}/>}
-          { location.pathname !== '/photographer' && <Link to="/"> Back </Link>}
+          { location.pathname === '/photographer/' && <Menu location={location}/>}
+          { location.pathname !== '/photographer/' && <Link className="back" to="/"> Back </Link>}
         </nav>
       </HeaderView>
     )
