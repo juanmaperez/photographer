@@ -60,6 +60,12 @@ const MainBlockView = styled.div`
   @media(max-width: 1199px){}
   @media(max-width: 768px){}
   @media(max-width: 520px){
+    &.first {
+      background-attachment: scroll !important;
+    }  
+    &.second {
+      background-attachment: scroll !important;
+    }
     .main-list {
       right: 20px;
       bottom: 10px;

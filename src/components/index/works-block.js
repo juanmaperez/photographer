@@ -47,8 +47,8 @@ const WorksBlockView = styled.div`
     padding: 100px 25px 100px;
     .section-title {
       top: 30px;
-      left: 20px;
-      font-size: 32vw;
+      left: 10px;
+      font-size: 30vw;
     }
   }
 `

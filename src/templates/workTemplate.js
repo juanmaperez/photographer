@@ -62,7 +62,7 @@ const WorkTemplateView = styled.div`
       width:90%;
       h1 {
         text-transform: uppercase;
-        font-size: 120px;
+        font-size: 100px;
         margin-bottom: 30px;
       }
       .work-image {
@@ -79,7 +79,6 @@ const WorkTemplate = ( { data, location } ) => {
   return (
     <Layout location={ location}>
       <WorkTemplateView>
-        hey
         <div className="work-template-container">
           <h1>{ frontmatter.title }</h1>
           <div className="description">
