@@ -33,7 +33,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
-  const workTemplate = path.resolve('src/templates/workTemplate.js');
+  const WorkTemplate = path.resolve('src/templates/workTemplate.js');
 
   return graphql (
     `{
@@ -56,10 +56,10 @@ exports.createPages = ({ actions, graphql }) => {
 
     const posts = result.data.allMarkdownRemark.edges;
 
-    posts.forEach(({ node }, index ) => {
+    posts.forEach(({ node }) => {
       createPage({
         path: node.frontmatter.path,
-        component: workTemplate
+        component: WorkTemplate
       })
     })
   })
