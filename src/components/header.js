@@ -71,7 +71,6 @@ class Header extends Component {
   
   render() {
     const { siteTitle, location } = this.props; 
-    console.log(location)
 
     return (
       <HeaderView>
