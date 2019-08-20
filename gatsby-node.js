@@ -1,8 +1,18 @@
 
 const path = require('path');
 
-exports.onCreateWebpackConfig = ({ stage, actions }) => {
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   actions.setWebpackConfig({
+    module: {
+      rules: stage === 'build-html'
+        ? [
+            {
+              test: /scrollmagic/,
+              use: loaders.null(),
+            }
+          ]
+        : []
+    },
     resolve: {
       alias: {
           "TweenLite": path.resolve('node_modules', 'gsap/src/minified/TweenLite.min.js'),
