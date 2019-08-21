@@ -3,6 +3,8 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { TweenMax, Linear, Power1 } from 'gsap';
 
+import { isMobile } from 'react-device-detect';
+
 import ScrollMagic from 'ScrollMagic'
 import 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min';
 
@@ -74,16 +76,16 @@ const WorkItemView = styled.div`
 
   @media(max-width: 768px){}
   @media(max-width: 480px){
-    height: 700px;
+    height: 600px;
     .work-container {
-      height: 500px !important;
+      height: 475px !important;
       width: 350px !important;
       background: grey;
       .image-wrapper { 
-        height: 500px !important;
+        height: 475px !important;
         width: 350px !important;
         .image {
-          height: 650px;
+          height: 600px;
         } 
       }
     }
@@ -118,9 +120,9 @@ class WorkItem extends Component {
 
   imageWrapperAnimation(){
     const { work, top } = this.props;
-
+    const moveUp = isMobile ? -60 : -200;
     const controller = new ScrollMagic.Controller()
-    const tween = TweenMax.fromTo(`.work-${work.type}-${top}`, 1, {y: 0}, {y:  top < 4  ? (-75 * top) : (-200 + (top * -10)) , ease: Power1.easeIn })
+    const tween = TweenMax.fromTo(`.work-${work.type}-${top}`, 1, {y: 0}, {y:  top < 4  ? (-60 * top) : ( moveUp + (top * -10)) , ease: Power1.easeIn })
     
     new ScrollMagic.Scene({
       triggerElement: `.work-${work.type}-${top}`,

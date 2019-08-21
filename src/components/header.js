@@ -33,6 +33,9 @@ const HeaderView = styled.header`
     }
   }
   nav {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
     .back { 
       margin-top: 5px;
       font-family: 'Questrial';
@@ -72,7 +75,6 @@ class Header extends Component {
   
   render() {
     const { siteTitle, location } = this.props; 
-
     return (
       <HeaderView>
         <h1 className="web-title" data-text="Photographer" style={{ margin: 0 }}>

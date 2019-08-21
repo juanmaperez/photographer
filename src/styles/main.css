@@ -204,4 +204,8 @@ input, select {
   @media(max-width: 1024px){
     .works-section { padding-top: 200px }
   }
+  @media(max-width: 480px){
+    .works-section { padding-top: 100px }
+  }
+
  
