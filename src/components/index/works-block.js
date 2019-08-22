@@ -44,9 +44,9 @@ const WorksBlockView = styled.div`
   }
 
   @media(max-width: 480px){
-    padding: 100px 25px 100px;
+    padding: 50px 25px 0px;
     .section-title {
-      top: 30px;
+      top: 0px;
       left: 10px;
       font-size: 30vw;
     }
