@@ -77,6 +77,8 @@ const WorkItemView = styled.div`
   @media(max-width: 768px){}
   @media(max-width: 480px){
     height: 600px;
+    align-items: flex-end;
+    
     .work-container {
       height: 475px !important;
       width: 350px !important;
